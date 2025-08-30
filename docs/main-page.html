@@ -1,0 +1,167 @@
+<h1 class="text-3xl md:text-4xl font-bold text-blue-700 mb-6">主页</h1>
+<!-- 主要新闻卡片 -->
+<div id="major-news" class="bg-light rounded-lg p-6 my-6 shadow-sm"></div>
+
+<!-- 研究重点卡片布局 -->
+<div id="research-focus" class="mb-12"></div>
+
+<!-- 研究目标和数据库卡片 -->
+<div id="research-goals" class="bg-white rounded-lg shadow-sm p-6 mb-12"></div>
+
+<!-- 名言引用 -->
+<div id="quote" class="mt-12 bg-white p-8 rounded-lg shadow-sm"></div>
+
+<script>
+    console.log('main-page.html 脚本开始执行');
+    console.log('当前 URL:', window.location.href);
+    
+    // 等待DOM完全加载
+    function loadMainPageContent() {
+        console.log('开始加载主页内容...');
+        
+        // 获取主要新闻
+        console.log('正在获取主要新闻...');
+        fetch('get_data.php?type=major_news')
+            .then(response => {
+                console.log('主要新闻响应状态:', response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('主要新闻数据:', data);
+                const newsElement = document.getElementById('major-news');
+                if (newsElement) {
+                    newsElement.innerHTML = data.content;
+                    console.log('主要新闻内容已更新');
+                } else {
+                    console.error('找不到major-news元素');
+                }
+            })
+            .catch(error => {
+                console.error('获取主要新闻失败:', error);
+                const newsElement = document.getElementById('major-news');
+                if (newsElement) {
+                    newsElement.innerHTML = '<p class="text-red-500">加载新闻内容失败: ' + error.message + '</p>';
+                }
+            });
+
+        // 获取研究重点
+        console.log('正在获取研究重点...');
+        fetch('get_data.php?type=research_focus')
+            .then(response => {
+                console.log('研究重点响应状态:', response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('研究重点数据:', data);
+                let html = '<h2 class="text-2xl font-bold text-center mb-8 text-gray-800">我们的研究重点</h2>';
+                html += '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">';
+                data.forEach(item => {
+                    html += '<div class="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition-transform">';
+                    html += `<h3 class="text-xl font-semibold text-blue-700 mb-3">${item.title}</h3>`;
+                    html += `<p class="text-gray-700">${item.description}</p>`;
+                    html += '</div>';
+                });
+                html += '</div>';
+                const focusElement = document.getElementById('research-focus');
+                if (focusElement) {
+                    focusElement.innerHTML = html;
+                    console.log('研究重点内容已更新');
+                } else {
+                    console.error('找不到research-focus元素');
+                }
+            })
+            .catch(error => {
+                console.error('获取研究重点失败:', error);
+                const focusElement = document.getElementById('research-focus');
+                if (focusElement) {
+                    focusElement.innerHTML = '<p class="text-red-500">加载研究重点内容失败: ' + error.message + '</p>';
+                }
+            });
+
+        // 获取研究目标和数据库
+        console.log('正在获取研究目标...');
+        fetch('get_data.php?type=research_goals')
+            .then(response => {
+                console.log('研究目标响应状态:', response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('研究目标数据:', data);
+                let html = '<h2 class="text-2xl font-bold mb-6 text-gray-800">研究目的与资源</h2>';
+                html += `<p class="mb-4">${data.goal}</p>`;
+                html += '<p class="mt-6 mb-3">Our recently published models and databases include:</p>';
+                html += '<ul class="list-disc pl-5 mt-3 space-y-2">';
+                data.resources.forEach(resource => {
+                    html += `<li><a href="#" target="_blank" class="text-blue-600 hover:underline">${resource}</a></li>`;
+                });
+                html += '</ul>';
+                html += '<button type="button" class="mt-6 px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center mx-auto" onclick="gototab(\'#webservers\')">';
+                html += '查看所有服务器 <i class="fa fa-arrow-right ml-2"></i>';
+                html += '</button>';
+                const goalsElement = document.getElementById('research-goals');
+                if (goalsElement) {
+                    goalsElement.innerHTML = html;
+                    console.log('研究目标内容已更新');
+                } else {
+                    console.error('找不到research-goals元素');
+                }
+            })
+            .catch(error => {
+                console.error('获取研究目标失败:', error);
+                const goalsElement = document.getElementById('research-goals');
+                if (goalsElement) {
+                    goalsElement.innerHTML = '<p class="text-red-500">加载研究目标内容失败: ' + error.message + '</p>';
+                }
+            });
+
+        // 获取名言引用
+        console.log('正在获取名言引用...');
+        fetch('get_data.php?type=quote')
+            .then(response => {
+                console.log('名言引用响应状态:', response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('名言引用数据:', data);
+                let html = '<figure class="text-center">';
+                html += '<blockquote class="blockquote">';
+                html += `<p class="text-italic text-lg md:text-xl">${data.quote}</p>`;
+                html += '</blockquote>';
+                html += '<figcaption class="blockquote-footer mt-4 text-gray-600">';
+                html += data.author;
+                html += '</figcaption>';
+                html += '</figure>';
+                const quoteElement = document.getElementById('quote');
+                if (quoteElement) {
+                    quoteElement.innerHTML = html;
+                    console.log('名言引用内容已更新');
+                } else {
+                    console.error('找不到quote元素');
+                }
+            })
+            .catch(error => {
+                console.error('获取名言引用失败:', error);
+                const quoteElement = document.getElementById('quote');
+                if (quoteElement) {
+                    quoteElement.innerHTML = '<p class="text-red-500">加载名言内容失败: ' + error.message + '</p>';
+                }
+            });
+    }
+    
+    // 立即执行加载函数
+    loadMainPageContent();
+    
+    console.log('main-page.html 脚本执行完成');
+</script>

@@ -1,0 +1,193 @@
+<!-- 主标题区域 -->
+<h1 class="text-3xl md:text-4xl font-bold text-blue-700 mb-6">EDP药物预测研究组</h1>
+
+<!-- 状态指示器 -->
+<div id="debug-status" class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 mb-4" role="alert">
+  <p class="font-bold">调试信息</p>
+  <p>加载状态：初始化中</p>
+</div>
+
+<!-- 重大新闻公告卡片 -->
+<div id="news-card" class="bg-gray-100 rounded-lg shadow p-4 md:p-6 my-6">
+  <h3 class="text-xl font-bold text-primary mb-3">研究进展</h3>
+  <p class="text-gray-700 mb-4">
+    <span class="inline-block bg-red-600 text-white px-2 py-1 rounded-md text-sm mr-2">重要新闻</span>
+    <strong class="text-lg">我们的EDP模型在精准药物预测方面取得突破性进展</strong>: EDP (基于集成的药物预测)方法通过结合内在无序蛋白质(IDP)的构象集成特性，成功实现了对药物-靶点相互作用的更精确预测。该项成果已发表于《Briefings in Bioinformatics》并在生物信息学领域引起广泛关注。
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="p-3 bg-white rounded shadow-sm">
+      <p class="text-gray-700"><strong>IDP靶向药物设计新范式获国际认可</strong>: 我们提出的利用内在无序蛋白质(IDP)的构象多样性来增强药物发现的新范式，在应用于神经退行性疾病和癌症相关靶点研究中取得了显著成果。</p>
+    </div>
+    <div class="p-3 bg-white rounded shadow-sm">
+      <p class="text-gray-700"><strong>EDP方法显著提高针对"难成药"靶点的药物发现效率</strong>: 我们基于分子动力学的EDP方法成功解决了传统药物设计中针对高度动态和无序蛋白靶点的挑战，特别是在针对神经退行性疾病相关蛋白如α-突触核蛋白和tau蛋白的药物筛选中表现出色。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 响应式图文布局区域 -->
+<div class="flex flex-col md:flex-row gap-6 my-10">
+  <!-- 左侧内容区 -->
+  <div id="left-content" class="w-full lg:w-1/2 xl:w-1/2 2xl:w-1/2">
+    <h2 class="text-2xl font-bold text-blue-700 mb-4">实验室简介</h2>
+    <div class="prose max-w-none">
+      <p>我们的总体目标是通过研究内在无序蛋白质(IDP)的序列、结构与功能关系，开发创新的计算方法用于药物发现，特别是针对传统被认为"难成药"的靶点。我们的EDP (基于集成的药物预测) 方法整合了分子动力学模拟和虚拟筛选技术，以捕捉蛋白质的动态特性和构象多样性，为神经退行性疾病和癌症等重大疾病的治疗药物开发提供全新思路。我们的研究跨越了从单个分子到大规模蛋白质组学的多个尺度，并依赖于机器学习和数据科学的前沿进展。</p>
+    </div>
+  </div>
+
+  <!-- 右侧图片（仅在大屏幕显示） -->
+  <img class="w-full h-auto p-4 md:p-6 hidden lg:block" alt="研究词云" src="images/word_cloud.svg" />
+</div>
+
+<!-- 研究方向部分 -->
+<div id="research-areas" class="my-10">
+  <h2 class="text-2xl font-bold text-blue-700 mb-4">研究方向</h2>
+  <ul id="research-list" class="list-disc pl-5 space-y-2">
+    <li class="text-gray-700"><strong>EDP药物预测方法开发</strong>: 开发基于IDP构象集成的创新药物预测方法，通过整合多构象对接和分子动力学模拟，提高对内在无序蛋白质靶点的药物发现效率</li>
+    <li class="text-gray-700"><strong>内在无序蛋白质构象采样</strong>: 使用分子动力学模拟和增强采样技术对IDP进行广泛的构象空间采样，构建代表性构象集成库用于药物筛选</li>
+    <li class="text-gray-700"><strong>神经退行性疾病靶点药物开发</strong>: 应用EDP方法于阿尔茨海默病、帕金森病等神经退行性疾病中关键无序蛋白靶点的药物发现，包括α-突触核蛋白、tau蛋白和Aβ肽等</li>
+    <li class="text-gray-700"><strong>多构象整合虚拟筛选</strong>: 开发和优化基于多构象整合的虚拟筛选策略，提高对"难成药"靶点的小分子识别能力</li>
+  </ul>
+</div>
+
+<!-- 研究模型部分 -->
+<div id="models" class="my-10">
+  <h2 class="text-2xl font-bold text-blue-700 mb-4">发表的模型</h2>
+  <ul id="models-list" class="list-disc pl-5 space-y-2">
+    <li class="text-gray-700"><a href="#" class="text-blue-600 hover:underline">EDP框架</a> - 一种创新的计算方法，整合IDP构象集成和虚拟筛选技术，专为针对内在无序蛋白质的药物发现设计</li>
+    <li class="text-gray-700"><a href="#" class="text-blue-600 hover:underline">IDP-SampleGen</a> - 基于分子动力学和增强采样的内在无序蛋白质构象生成工具</li>
+    <li class="text-gray-700"><a href="#" class="text-blue-600 hover:underline">MultiDock-IDP</a> - 创新的多构象整合对接方法，专门针对无序蛋白区域设计</li>
+    <li class="text-gray-700"><a href="#" class="text-blue-600 hover:underline">Pharmaco-IDP</a> - 基于IDP特性的药效预测工具，结合药物化学和蛋白质动力学分析</li>
+  </ul>
+</div>
+
+<!-- 名人名言引用板块 -->
+<figure id="quote-section" class="bg-gray-100 rounded-lg p-6 my-10">
+  <blockquote class="italic text-gray-700">
+    "创新的计算方法是解决复杂生物医学问题的关键。通过整合多学科知识和技术，我们致力于推动药物发现的前沿发展。"
+  </blockquote>
+  <figcaption class="text-right mt-2">- EDP研究组</figcaption>
+</figure>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 更新调试状态
+  function updateStatus(message) {
+    var statusElement = document.getElementById('debug-status');
+    if (statusElement) {
+      statusElement.innerHTML = '<p class="font-bold">调试信息</p><p>加载状态：' + message + '</p>';
+    }
+    console.log('状态更新: ' + message);
+  }
+
+  // 尝试AJAX请求，但仅作为诊断目的
+  function testAjax() {
+    updateStatus('开始测试AJAX请求');
+    
+    var endpoints = ['news', 'left_content', 'research_areas', 'models', 'quote'];
+    var results = {
+      total: endpoints.length,
+      succeeded: 0,
+      failed: 0,
+      details: {}
+    };
+    
+    endpoints.forEach(function(endpoint) {
+      var url = 'get_data.php?type=' + endpoint;
+      updateStatus('测试端点: ' + url);
+      
+      // 创建测试请求
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      
+      xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 400) {
+          try {
+            var data = JSON.parse(xhr.responseText);
+            results.succeeded++;
+            results.details[endpoint] = {
+              success: true,
+              status: xhr.status,
+              data: data
+            };
+            updateStatus('端点 ' + endpoint + ' 测试成功');
+          } catch(e) {
+            results.failed++;
+            results.details[endpoint] = {
+              success: false,
+              status: xhr.status,
+              error: 'JSON解析错误: ' + e.message,
+              responseText: xhr.responseText.substring(0, 100) + (xhr.responseText.length > 100 ? '...' : '')
+            };
+            updateStatus('端点 ' + endpoint + ' JSON解析错误');
+          }
+        } else {
+          results.failed++;
+          results.details[endpoint] = {
+            success: false,
+            status: xhr.status,
+            statusText: xhr.statusText
+          };
+          updateStatus('端点 ' + endpoint + ' 响应错误: ' + xhr.status);
+        }
+        
+        // 所有请求完成后，显示汇总结果
+        if ((results.succeeded + results.failed) === results.total) {
+          showFinalResults(results);
+        }
+      };
+      
+      xhr.onerror = function() {
+        results.failed++;
+        results.details[endpoint] = {
+          success: false,
+          error: '网络错误'
+        };
+        updateStatus('端点 ' + endpoint + ' 网络错误');
+        
+        // 所有请求完成后，显示汇总结果
+        if ((results.succeeded + results.failed) === results.total) {
+          showFinalResults(results);
+        }
+      };
+      
+      xhr.send();
+    });
+  }
+  
+  function showFinalResults(results) {
+    var summaryHTML = '<p class="font-bold">测试结果汇总</p>' +
+                     '<p>总计端点: ' + results.total + '</p>' +
+                     '<p>成功: ' + results.succeeded + '</p>' +
+                     '<p>失败: ' + results.failed + '</p>';
+                     
+    if (results.failed > 0) {
+      summaryHTML += '<p class="text-red-500 font-bold">检测到问题:</p><ul>';
+      
+      for (var endpoint in results.details) {
+        if (!results.details[endpoint].success) {
+          summaryHTML += '<li>' + endpoint + ': ' + 
+                        (results.details[endpoint].error || 
+                         '状态码 ' + results.details[endpoint].status) + '</li>';
+        }
+      }
+      
+      summaryHTML += '</ul>';
+      summaryHTML += '<p class="mt-2">推荐使用静态内容显示页面，或修复服务器端API问题。</p>';
+    } else {
+      summaryHTML += '<p class="text-green-500 font-bold">所有API端点测试通过！</p>';
+      summaryHTML += '<p>可能存在其他问题导致动态内容无法显示。检查浏览器控制台是否有JavaScript错误。</p>';
+    }
+    
+    document.getElementById('debug-status').innerHTML = summaryHTML;
+    document.getElementById('debug-status').className = 
+      results.failed > 0 ? 'bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4' 
+                         : 'bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4';
+    
+    // 记录完整结果到控制台，方便开发者调试
+    console.log('AJAX测试结果:', results);
+  }
+  
+  // 开始测试
+  testAjax();
+});
+</script>
